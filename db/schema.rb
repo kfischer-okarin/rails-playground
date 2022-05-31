@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_31_053306) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_31_053733) do
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -34,6 +34,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_053306) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["date", "user_id"], name: "index_work_times_on_date_and_user_id"
+    t.index ["date"], name: "index_work_times_on_date"
     t.index ["user_id"], name: "index_work_times_on_user_id"
   end
 
